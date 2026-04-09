@@ -104,6 +104,51 @@ AI 基于你的知识回答，而非通用训练数据
 
 ---
 
+## 前置要求
+
+### 必需
+
+| 工具 | 用途 | 安装 |
+|------|------|------|
+| [Obsidian](https://obsidian.md) | 本地优先的知识仓库 | 从官网下载 |
+| [Claude Code](https://claude.ai/code) | AI 层——驱动检索、编织和维护 | `npm install -g @anthropic-ai/claude-code` |
+
+### 必需的 Claude Code 插件
+
+| 插件 | 用途 | 安装命令 |
+|------|------|---------|
+| [obsidian-skills](https://github.com/kepano/obsidian-skills) | Obsidian 风格 Markdown、JSON Canvas、Bases 格式支持 | `/plugin marketplace add kepano/obsidian-skills && /plugin install obsidian@obsidian-skills` |
+
+### 推荐的 Claude Code 插件
+
+| 插件 | 用途 | 安装命令 |
+|------|------|---------|
+| [superpowers](https://github.com/anthropics/claude-code-plugins) | 增强规划、调试和任务管理能力 | `/plugin install superpowers@claude-plugins-official` |
+
+### 内置技能
+
+模板在 `System/skills/` 中自带四个自定义技能，驱动核心工作流：
+
+| 技能 | 触发 | 功能 |
+|------|------|------|
+| **intake** | `/intake` 或「归档」 | 扫描 Inbox → 归档到 Resources/ → 编织知识进 Wiki/ |
+| **maintain** | `/maintain` 或「维护」 | 全库健康扫描：结构、内容、编织进度 |
+| **digest** | `/digest` 或「整理」 | 审查 AI 观察到的偏好候选，用户确认后晋升 |
+| **writing** | `/writing` 或「写作」 | 加载你的写作风格规则，用你的风格写作 |
+
+这些技能是纯 Markdown 文件——根据你的工作流自由编辑。
+
+### 推荐的 Obsidian 插件
+
+| 插件 | 用途 |
+|------|------|
+| **Dataview** | 查询和展示笔记数据 |
+| **Templater** | 高级笔记模板 |
+| **QuickAdd** | 快速捕获工作流 |
+| **Graph Analysis** | 可视化知识连接 |
+
+---
+
 ## 快速开始
 
 ### 第一步：克隆
@@ -118,7 +163,21 @@ git clone https://github.com/Nowhitestar/second-brain-template.git "My Second Br
 2. 选择克隆的目录
 3. 启用社区插件（Dataview、Templater 等）
 
-### 第三步：配置 Claude Code
+### 第三步：安装 Claude Code 插件
+
+```bash
+# 进入你的仓库目录
+cd "My Second Brain"
+
+# 必需：Obsidian 格式支持
+/plugin marketplace add kepano/obsidian-skills
+/plugin install obsidian@obsidian-skills
+
+# 推荐：增强规划和调试能力
+/plugin install superpowers@claude-plugins-official
+```
+
+### 第四步：配置你的身份
 
 `.claude/CLAUDE.md` 已预配置。你需要自定义：
 
@@ -126,7 +185,7 @@ git clone https://github.com/Nowhitestar/second-brain-template.git "My Second Br
 2. 编辑 `Identity/CONTEXT.md` — 描述你当前的工作重点
 3. 编辑 `Identity/PROFILE.md` — 设置你的沟通偏好
 
-### 第四步：开始使用
+### 第五步：开始使用
 
 ```bash
 # 在你的仓库目录打开 Claude Code
@@ -200,15 +259,6 @@ Inbox/Resources → AI 处理 → Wiki/（实体、概念、分析）
 ### 添加 Wiki 分类
 
 默认 Wiki 有四个分类：entities、concepts、analyses、overviews。根据需要添加更多（如 `decisions/`、`people/`、`tools/`）。
-
-### 推荐 Obsidian 插件
-
-| 插件 | 用途 |
-|------|------|
-| **Dataview** | 查询和展示笔记数据 |
-| **Templater** | 高级笔记模板 |
-| **QuickAdd** | 快速捕获工作流 |
-| **Graph Analysis** | 可视化知识连接 |
 
 ---
 

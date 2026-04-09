@@ -104,6 +104,51 @@ The system maintains itself:
 
 ---
 
+## Prerequisites
+
+### Required
+
+| Tool | Purpose | Install |
+|------|---------|---------|
+| [Obsidian](https://obsidian.md) | Local-first knowledge vault | Download from official site |
+| [Claude Code](https://claude.ai/code) | AI layer — powers retrieval, weaving, and maintenance | `npm install -g @anthropic-ai/claude-code` |
+
+### Required Claude Code Plugin
+
+| Plugin | Purpose | Install Command |
+|--------|---------|-----------------|
+| [obsidian-skills](https://github.com/kepano/obsidian-skills) | Obsidian Flavored Markdown, JSON Canvas, and Bases format support | `/plugin marketplace add kepano/obsidian-skills && /plugin install obsidian@obsidian-skills` |
+
+### Recommended Claude Code Plugins
+
+| Plugin | Purpose | Install Command |
+|--------|---------|-----------------|
+| [superpowers](https://github.com/anthropics/claude-code-plugins) | Enhanced planning, debugging, and task management skills | `/plugin install superpowers@claude-plugins-official` |
+
+### Built-in Skills
+
+This template ships with four custom skills in `System/skills/` that power the core workflows:
+
+| Skill | Trigger | What It Does |
+|-------|---------|-------------|
+| **intake** | `/intake` or "intake" | Scans Inbox → archives to Resources/ → weaves knowledge into Wiki/ |
+| **maintain** | `/maintain` or "maintain" | Full vault health scan: structure, content, weaving progress |
+| **digest** | `/digest` or "digest" | Reviews AI-observed preference candidates for user approval |
+| **writing** | `/writing` or "writing" | Loads your writing style rules, then writes in your voice |
+
+These skills are plain Markdown files — edit them to match your workflow.
+
+### Recommended Obsidian Plugins
+
+| Plugin | Purpose |
+|--------|---------|
+| **Dataview** | Query and display note metadata |
+| **Templater** | Advanced templates for new notes |
+| **QuickAdd** | Fast capture workflows |
+| **Graph Analysis** | Visualize knowledge connections |
+
+---
+
 ## Quick Start
 
 ### Step 1: Clone
@@ -118,7 +163,21 @@ git clone https://github.com/Nowhitestar/second-brain-template.git "My Second Br
 2. Select the cloned directory
 3. Enable community plugins (for Dataview, Templater, etc.)
 
-### Step 3: Configure Claude Code
+### Step 3: Install Claude Code Plugins
+
+```bash
+# Navigate to your vault
+cd "My Second Brain"
+
+# Required: Obsidian format support
+/plugin marketplace add kepano/obsidian-skills
+/plugin install obsidian@obsidian-skills
+
+# Recommended: Enhanced planning & debugging
+/plugin install superpowers@claude-plugins-official
+```
+
+### Step 4: Configure Your Identity
 
 The `.claude/CLAUDE.md` file is pre-configured. Customize it:
 
@@ -126,7 +185,7 @@ The `.claude/CLAUDE.md` file is pre-configured. Customize it:
 2. Edit `Identity/CONTEXT.md` — describe your current focus
 3. Edit `Identity/PROFILE.md` — set your communication preferences
 
-### Step 4: Start Using
+### Step 5: Start Using
 
 ```bash
 # Open Claude Code in your vault directory
@@ -200,15 +259,6 @@ Edit the `<RETRIEVAL>` section in `.claude/CLAUDE.md` to change search prioritie
 ### Add Your Own Wiki Categories
 
 The default Wiki has four categories: entities, concepts, analyses, overviews. Add more if your work requires it (e.g., `decisions/`, `people/`, `tools/`).
-
-### Recommended Obsidian Plugins
-
-| Plugin | Purpose |
-|--------|---------|
-| **Dataview** | Query and display note metadata |
-| **Templater** | Advanced templates for new notes |
-| **QuickAdd** | Fast capture workflows |
-| **Graph Analysis** | Visualize knowledge connections |
 
 ---
 
