@@ -1,0 +1,16 @@
+# Obsidian
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/plugins/recent-files-obsidian/data.json
+.trash/
+
+# System
+.DS_Store
+Thumbs.db
+
+# Session logs (private)
+System/session_logs/
+
+# Daily logs (private)
+System/working-memory/daily/*.md
+!System/working-memory/daily/.gitkeep
